@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const useWindowSize = () => {
+export const useWindowSizeOne = () => {
 	const [windowSize, setWindowSize] = useState({
 		width: 0,
 		height: 0,
@@ -9,7 +9,7 @@ export const useWindowSize = () => {
 	useEffect(() => {
 		function handleResize() {
 			setWindowSize({
-				width: window.innerHeight,
+				width: window.innerWidth,
 				height: window.innerHeight
 			});
 		}
@@ -22,3 +22,16 @@ export const useWindowSize = () => {
 	
 	return windowSize
 }
+
+// export const useWindowSizeTwo = () => {
+// 	const [windowSize, setWindowSize] = useState({
+// 		width: 0,
+// 		height: 0,
+// 	})
+
+// 	useEffect(() => {
+// 		function handleResize(){
+// 			width: window.inner
+// 		}
+// 	})
+// }

@@ -2,7 +2,7 @@
 
 import { FiBarChart, FiBell, FiDollarSign, FiPlay } from "react-icons/fi";
 import { AnimatePresence, motion } from "framer-motion";
-import { useWindowSize } from "./useWindowSize";
+import { useWindowSizeOne } from "./useWindowSize";
 import { useState } from "react";
 
 const VerticalAccordion = () => {
@@ -31,7 +31,7 @@ const VerticalAccordion = () => {
 };
 
 const Panel = ({ open, setOpen, id, Icon, title, imgSrc, description }) => {
-  const { width } = useWindowSize();
+  const { width } = useWindowSizeOne();
   const isOpen = open === id;
 
   return (
@@ -59,7 +59,7 @@ const Panel = ({ open, setOpen, id, Icon, title, imgSrc, description }) => {
         {isOpen && (
           <motion.div
             key={`panel-${id}`}
-            variants={width > 650 ? panelVariants : panelVariantsSm}
+            variants={width > 1024 ? panelVariants : panelVariantsSm}
             initial="closed"
             animate="open"
             exit="closed"
