@@ -1,0 +1,7 @@
+Event Object : 
+- client.x
+- client.y
+
+Window Object :
+- Doc
+- Screen
