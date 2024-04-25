@@ -9,8 +9,10 @@ const BasicFAQ = () => {
 	
 	return ( 
 		<>
-			<section className="px-">
-
+			<section className=" bg-white ">
+				<div className="py-10 flex flex-col items-center border-[1px] border-black/30">
+					<p className="text-3xl font-bold">Frequently ask questions</p>
+				</div> 
 			</section>
 		</>
 	);
@@ -18,7 +20,17 @@ const BasicFAQ = () => {
  
 export default BasicFAQ;
 
-// const Panel = ({})
+const Panel = ({ open, setOpen, id, question, paragraph}) => {
+	const s = 0;
+
+	return (
+		<>
+			<button className="bg-white">
+
+			</button>
+		</>
+	) 
+}
 
 const panelVariants = {
 	open: {
