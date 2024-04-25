@@ -17,6 +17,7 @@ const SpotlightButton = () => {
 
   useEffect(() => {
     const handleMouseMove = (e) => {
+      console.log(e.target.getBoundingClientRect())
       const { width } = e.target.getBoundingClientRect();
       const offset = e.offsetX;
       const left = `${(offset / width) * 100}%`;
