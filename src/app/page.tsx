@@ -11,6 +11,22 @@ export default function Home() {
       <Link href={'/button'} >
         Button Component
       </Link>
+
+      <Link href={'/button'} >
+        Cards Component
+      </Link>
+
+      <Link href={'/button'} >
+        Carousel Component
+      </Link>
+
+      <Link href={'/button'} >
+        Countdown Component
+      </Link>
+
+      <Link href={'/button'} >
+        Dropdown Component
+      </Link>
     </div>
   );
 }
