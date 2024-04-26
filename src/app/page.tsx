@@ -12,19 +12,19 @@ export default function Home() {
         Button Component
       </Link>
 
-      <Link href={'/button'} >
+      <Link href={'/cards'} >
         Cards Component
       </Link>
 
-      <Link href={'/button'} >
+      <Link href={'/carousels'} >
         Carousel Component
       </Link>
 
-      <Link href={'/button'} >
+      <Link href={'/countdown'} >
         Countdown Component
       </Link>
 
-      <Link href={'/button'} >
+      <Link href={'/dropdown'} >
         Dropdown Component
       </Link>
     </div>
