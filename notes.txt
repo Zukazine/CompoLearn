@@ -5,3 +5,22 @@ Event Object :
 Window Object :
 - Doc
 - Screen
+
+Spotlight Button : 
+- useRef buat monitoring button dan span Obj
+- useEffect buat ngelola eventHandler (ketika mouseMove dan mouseLeave)
+- mouseMove -> gerakin span
+- mouseLeave -> balikin span ke kondisi awal
+- tambahin eventHandler ke btnRef (parrent)
+- janlup kasih motion.button dengan ref object btnRef dan dikasih whileTap props buat ngubah scale. 
+
+Neubrutallism :
+- simple, cuma mainin shadow tanpa blur dan opacity
+- kalo dihover shadow-none trerus tinggal dikasih pre hover sama transition:all props
+
+Neuromorphism : 
+- sama kayak Neubrutallism (tinggal mainin shadow)
+
+DrawOutlineButton : 
+- Tinggal mainin span (bikin atas bawah kanan kiri dengan delay beda biar kayak berurutan)
+- Pake chidlren, ...rest kalo misal childrennya juga banyak aja, kalo dikasus button ini masih bisa dihapus dan dikasih tulisan di span aja. 
