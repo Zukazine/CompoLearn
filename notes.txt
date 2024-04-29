@@ -1,10 +1,4 @@
-Event Object : 
-- client.x
-- client.y
-
-Window Object :
-- Doc
-- Screen
+------------------------ Button ------------------------ 
 
 Spotlight Button : 
 - useRef buat monitoring button dan span Obj
@@ -24,3 +18,20 @@ Neuromorphism :
 DrawOutlineButton : 
 - Tinggal mainin span (bikin atas bawah kanan kiri dengan delay beda biar kayak berurutan)
 - Pake chidlren, ...rest kalo misal childrennya juga banyak aja, kalo dikasus button ini masih bisa dihapus dan dikasih tulisan di span aja. 
+
+----------------------- Cards ------------------------
+
+HoverTilt Card : 
+- using useSpring for spring animation in 3d preservation style using transform inside inline style and translateZ by 50 - 75 px
+- using useMotionValue to keep track abt the motion value and pass it t useSpring. 
+- value in useSpring then pass to the useMotionTemplate as "const transform"
+- transform value changed by handleMouseMove because x.set(rX0 and y.set(rY))
+
+Squishy Card : 
+- utilize motion.circle and motion.ellipse 
+- set the cx,cy,rx,and ry (for ellipse)
+- set sclaeY while hovering
+
+Navigation Card : 
+- tinggal main di transition-transform rotate hover: group dsb
+- translate-y-[100%] berarti dia di bawah, kalo 0% berarti dia full fit 
