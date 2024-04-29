@@ -17,6 +17,7 @@ const HorizontalScrollCarousel = () => {
           Scroll up
         </span>
       </div>
+      <div className="h-screen"/>
     </div>
   );
 };
@@ -27,7 +28,7 @@ const AnimatedHorizontalScrollCarousel = () => {
     target: targetRef,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["1%", "-95%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["1%", "-100%"]);
 
   return (
     <section ref={targetRef} className="relative h-[300vh] bg-neutral-900">

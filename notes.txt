@@ -43,6 +43,24 @@ Swipe Carousel
 - dots ngeloop mapping dari dictionary, jadi button nya jadi banyak, dan pake conditional berdasarkan imgindex nanti buletannya warna putih terang (yang aktif)
 
 Horizontal Carousel
-- 
+- Utilize useScroll:scrollYProgress and map 0 - 1 to 1% - 100%
+- Utilize inline style backgroundImage, Size, and Position 
+- Utilize useTransform to and store it on x const
 
 ----------------------- Countdown ------------------------
+
+Shifting Countdown
+- Utilize Animate Presence : there's initial, animate, and exit props that must filled.
+- with transition ease:backIn, teksnya kayak ada efek mundur dulu baru naik
+
+----------------------- DropDown ------------------------
+
+Flyout Link
+- Permainan Javascript logic seperti biasa + AnimatePresence
+
+Shifting DropDown
+- Permainan Javascript logic seperti biasa
+
+Staggered Dropdown
+- Permainan Javascript logic
+- Staggered Child animation

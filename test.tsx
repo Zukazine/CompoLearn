@@ -1,103 +1,83 @@
-import { motion, useTransform, useScroll } from "framer-motion";
-import { useRef } from "react";
+import React, { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
-const HorizontalScrollCarousel = () => {
-	return (
-		<div>
-			<div>
-				<span>
-					Scroll Down
-				</span>
-			</div>
-			<AnimatedHorizontalScrollCarousel />
-			<div>
-				<span>
-					Scroll Up
-				</span>
-			</div>
-		</div>
+const FlyoutLink = () => {
+  return (
+    <div className="grid place-content-center h-screen bg-neutral-900 px-3 py-12">
+      <AnimatedFlyoutLink href="#" FlyoutContent={PricingContent}>
+        Pricing
+      </AnimatedFlyoutLink>
+    </div>
+  );
+};
 
-	)
-}
 
-const AnimatedHorizontalScrollCarousel = () => {
-	 const targetRef = useRef(null);
-	 const { scrollYProgress } = useScroll({
-		target: targetRef,
-	 })
+const AnimatedFlyoutLink = ({ children, href, FlyoutContent }) => {
+	const [open, setOpen] = useState(false)
+	const showFlyout = FlyoutContent && open;
 
-	 const x  = useTransform(scrollYProgress, [0,1], ["1%", "-95%"])
-
-	 return (
-		<section ref={targetRef} className="relative h-[300vh] bg-neutral-900">
-			<div className="sticky top-0 flex h-screen items-center overflow-hidden">
-				<motion.div style={{x}} className="flex gap-4">
-					{cards.map((card) => {
-						return <Card card={card} key={card.id} />
-					})}
-				</motion.div>
-			</div>
-		</section>
-	 )
-}
-
-const Card = ({ card }) => {
 	return (
 		<div
-			key={card.id}
-			className="group relative h-[450px] w-[450px] overflow-hidden bg-neutral-200"
+			onMouseEnter={() => setOpen(true)}
+			onMouseLeave={() => setOpen(false)}
+			className="relative w-fit h-fit"
 		>
-			<div
-				style={{
-					backgroundImage: `url(${card.url})`,
-					backgroundSize: "cover",
-					backgroundPosition: "center",
-				}}
-				className="absolute inset-0 z-0 transition-transform duration-300 group-hover:scale-110"
-			/>
-			<div className="absolute inset-0 z-10 grid place-content-center">
-				<p className="bg-gradient-to-br from-white/20 to-white/0 p-8 text-6xl font-black uppercase text-white backdrop-blur-lg">
-					{card.title}
-				</p>
-			</div>
+			<a href={href} className="relative text-white">
+				{children}
+				<span 
+					style={{
+						transform: showFlyout ? "scaleX(1)" : "scaleX(0)"
+					}}
+					className="absolute -bottom-2 -left-2 -right-2 h-1 origin-left scale-x-0 rounded-full bg-indigo-300 transtiion-transform duration-300 ease-out"
+				/>
+			</a>
+			<AnimatePresence>
+				{showFlyout && (
+					<motion.div
+						initial={{ opacity:0, y:15 }}
+						animate={{ opacity: 1, y: 0 }}
+						exit={{ opacity: 0, y:15 }}
+						style={{ translateX: "-50%" }}
+						transition={{ duration:0.3, ease: 'easeOut' }}
+						className="absolute left-1/2 top-12 bg-white text-black"
+					>
+						<div className="absolute -top-6 left-0 right-0 h-6 bg-transparent" />
+            <div className="absolute left-1/2 top-0 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-white" />
+            <FlyoutContent />
+					</motion.div>
+				)}
+			</AnimatePresence>
 		</div>
 	)
 }
 
-const cards = [
-  {
-    url: "/imgs/abstract/1.jpg",
-    title: "Title 1",
-    id: 1,
-  },
-  {
-    url: "/imgs/abstract/2.jpg",
-    title: "Title 2",
-    id: 2,
-  },
-  {
-    url: "/imgs/abstract/3.jpg",
-    title: "Title 3",
-    id: 3,
-  },
-  {
-    url: "/imgs/abstract/4.jpg",
-    title: "Title 4",
-    id: 4,
-  },
-  {
-    url: "/imgs/abstract/5.jpg",
-    title: "Title 5",
-    id: 5,
-  },
-  {
-    url: "/imgs/abstract/6.jpg",
-    title: "Title 6",
-    id: 6,
-  },
-  {
-    url: "/imgs/abstract/7.jpg",
-    title: "Title 7",
-    id: 7,
-  },
-];
+const PricingContent = () => {
+	return (
+		<div className="w-64 bg-white p-6 shadow-xl">
+			<div className="mb-3 space-y-3">
+				<h3 className="font-semibold">For Individuals</h3>
+				<a href="#" className="block text-sm hover:underline">
+					Introduction
+				</a>
+				<a href="#" className="block text-sm hover:underline">
+					Pay as you go
+				</a>
+			</div>
+			<div className="mb-6 space-y-3">
+				<h3 className="font-semibold">For Companies</h3>
+				<a href="#" className="block text-sm hover:underline">
+					Startups
+				</a>
+				<a href="#" className="block text-sm hover:underline">
+					SMBs
+				</a>
+				<a href="#" className="block text-sm hover:underline">
+					Enterprise
+				</a>
+			</div>
+			<button className="w-full rounded-lg border-2 border-neutral-950 px-4 py-2 font-semibold transition-colors hover:bg-neutral-950 hover:text-white">
+				Contact sales
+			</button>
+		</div>
+	);
+};
