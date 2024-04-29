@@ -1,65 +1,103 @@
-import React from "react";
-import { 
-	FiCreditCard, 
-	FiMail, 
-	FiUser, 
-	FiUsers 
-} from "react-icons/fi";
+import { motion, useTransform, useScroll } from "framer-motion";
+import { useRef } from "react";
 
-const Card = ({
-	title,
-	subtitle,
-	Icon, 
-	href
-}) => {
+const HorizontalScrollCarousel = () => {
 	return (
-		<a
-			href={href}
-			className="
-				relative group w-full p-4 overflow-hidden 
-				rounded-border-[1px] border-slate-300 bg-white"
-		>
-			<div className="
-				absolute inset-0
-				bg-gradient-to-r from-violet-600 to-indigo-600 
-				translate-y-[100%] group-hover:translate-y-[0%]
-				
-				transition-transform duration-300
-				"
-			/>
-			<Icon className="
-				absolute z-10 -top-12 -right-12 
-				text-9xl text-slate-100 group-hover:text-violet-600
-				group-hover:rotate-12
+		<div>
+			<div>
+				<span>
+					Scroll Down
+				</span>
+			</div>
+			<AnimatedHorizontalScrollCarousel />
+			<div>
+				<span>
+					Scroll Up
+				</span>
+			</div>
+		</div>
 
-				transition-transform duration-300
-			"/>
-			<Icon className="
-				relative z-10 mb-2 
-				text-2xl text-violet-600 group-hover:text-white
-
-				transition-colors duration-300
-			"/>
-			<h3 className="
-				relative z-10
-				font-medium text-lg text-slate-950 group-hover:text-white 
-
-				duraiton-300
-			">
-
-				{title}
-			
-			</h3>
-			<p className="
-				relative z-10 
-				text-slate-400 group-hover:text-violet-200
-			
-				duration-300
-			">
-
-				{subtitle}
-			
-			</p>
-		</a>
 	)
 }
+
+const AnimatedHorizontalScrollCarousel = () => {
+	 const targetRef = useRef(null);
+	 const { scrollYProgress } = useScroll({
+		target: targetRef,
+	 })
+
+	 const x  = useTransform(scrollYProgress, [0,1], ["1%", "-95%"])
+
+	 return (
+		<section ref={targetRef} className="relative h-[300vh] bg-neutral-900">
+			<div className="sticky top-0 flex h-screen items-center overflow-hidden">
+				<motion.div style={{x}} className="flex gap-4">
+					{cards.map((card) => {
+						return <Card card={card} key={card.id} />
+					})}
+				</motion.div>
+			</div>
+		</section>
+	 )
+}
+
+const Card = ({ card }) => {
+	return (
+		<div
+			key={card.id}
+			className="group relative h-[450px] w-[450px] overflow-hidden bg-neutral-200"
+		>
+			<div
+				style={{
+					backgroundImage: `url(${card.url})`,
+					backgroundSize: "cover",
+					backgroundPosition: "center",
+				}}
+				className="absolute inset-0 z-0 transition-transform duration-300 group-hover:scale-110"
+			/>
+			<div className="absolute inset-0 z-10 grid place-content-center">
+				<p className="bg-gradient-to-br from-white/20 to-white/0 p-8 text-6xl font-black uppercase text-white backdrop-blur-lg">
+					{card.title}
+				</p>
+			</div>
+		</div>
+	)
+}
+
+const cards = [
+  {
+    url: "/imgs/abstract/1.jpg",
+    title: "Title 1",
+    id: 1,
+  },
+  {
+    url: "/imgs/abstract/2.jpg",
+    title: "Title 2",
+    id: 2,
+  },
+  {
+    url: "/imgs/abstract/3.jpg",
+    title: "Title 3",
+    id: 3,
+  },
+  {
+    url: "/imgs/abstract/4.jpg",
+    title: "Title 4",
+    id: 4,
+  },
+  {
+    url: "/imgs/abstract/5.jpg",
+    title: "Title 5",
+    id: 5,
+  },
+  {
+    url: "/imgs/abstract/6.jpg",
+    title: "Title 6",
+    id: 6,
+  },
+  {
+    url: "/imgs/abstract/7.jpg",
+    title: "Title 7",
+    id: 7,
+  },
+];

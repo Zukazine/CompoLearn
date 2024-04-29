@@ -35,3 +35,14 @@ Squishy Card :
 Navigation Card : 
 - tinggal main di transition-transform rotate hover: group dsb
 - translate-y-[100%] berarti dia di bawah, kalo 0% berarti dia full fit 
+
+----------------------- Carousel ------------------------
+
+Swipe Carousel
+- OOP Thinker (BG -> the DOTS compo -> Imgs inside -> setelah tu baru carouselnya yang dipikirin)
+- dots ngeloop mapping dari dictionary, jadi button nya jadi banyak, dan pake conditional berdasarkan imgindex nanti buletannya warna putih terang (yang aktif)
+
+Horizontal Carousel
+- 
+
+----------------------- Countdown ------------------------
