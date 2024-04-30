@@ -64,3 +64,16 @@ Shifting DropDown
 Staggered Dropdown
 - Permainan Javascript logic
 - Staggered Child animation
+
+----------------------- Motion Props Purposes ------------------------
+- AnimatePresence : multiple motion dan mau disamakan initial, progress, dan exit animation dan punya multiple variants yang mau dimasukkan .
+- MotionConfig : penyamaan motion props misal duration dan ease nya disamain
+- useMotionTemplate : string literal, bisa dimasukkin ke inline style pada akhirnya
+- useMotionValue : set and get their state, sync motion accross with this val, chain val via useTransform, update visual props w/out render, subscribe to upd
+- useSpring : kayak motion value, bisa langsung kasih ke inline style, efek spring ke animation
+- useTransform : transform A to A' with value or range of val given
+- useScroll : manifesting scroll value or the progress value (X and Y)
+
+----------------------- Accordion tst ------------------------
+- 
+
