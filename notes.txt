@@ -77,3 +77,8 @@ Staggered Dropdown
 ----------------------- Accordion tst ------------------------
 - 
 
+----------------------- BStuff ------------------------
+- COne (setInterval)
+- CTwo (plusButton)
+- Search Functionality
+- Add a component via button
