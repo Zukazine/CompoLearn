@@ -1,12 +1,25 @@
 'use client'
 
 import { useEffect, useState, useRef } from "react";
-import { IoConstructOutline } from "react-icons/io5";
 
 const CounterOne = () => {
-	const [num, setNum] = useState(100000)
+	const [num, setNum] = useState(0)
+	const [tmp, setTmp] = useState(1)
+	// const containCount = useRef(0)
 	console.log(num)	
 	// useInterval(() => {setNum(num + 1)}, 1000)
+
+	// useRef just for ref doang :D
+	// containCount.current = num
+
+	useEffect(() => {	
+		const count = setInterval(() => {
+			// setNum(pv => pv + 1)
+			setNum(num + tmp)
+		}, 1000)
+
+		return () => { clearInterval(count) }
+	}, [tmp, num])
 
  	return ( 
 		<div className="grid place-items-center bg-slate-300 h-screen">
@@ -17,13 +30,15 @@ const CounterOne = () => {
 			<div className="flex gap-4">
 				<button 
 					className="flex justify-center items-center text-2xl bg-green-500 rounded-lg px-4 font-bold text-white transition-transform duration-300"
-					onClick={() => {setNum(num + 1)}}
+					// onClick={() => {setNum(num + 1)}}
+					// onClick={() => setNum(containCount.current + 1)}
 				>
 					+
 				</button>
 				<button
 					className="flex justify-center items-center text-2xl bg-red-500 rounded-lg px-4 font-bold text-white transition-transform duration-300" 
-					onClick={() => {setNum(num - 1)}}
+					// onClick={() => {setNum(num - 1)}}
+					// onClick={() => setNum(containCount.current - 1)}
 				>
 					-
 				</button>
@@ -35,18 +50,18 @@ const CounterOne = () => {
  
 export default CounterOne;
 
-const useInterval = ( callback,  delay ) => {
-	const savedCallback = useRef()
+// const useInterval = ( callback,  delay ) => {
+// 	const savedCallback = useRef()
 	
-	useEffect(() => {
-		savedCallback.current = callback
-	}, [callback])
+// 	useEffect(() => {
+// 		savedCallback.current = callback
+// 	}, [callback])
 
-	useEffect(() => {
-		let id = setInterval(() => {
-			savedCallback.current
-		}, delay)
+// 	useEffect(() => {
+// 		let id = setInterval(() => {
+// 			savedCallback.current
+// 		}, delay)
 
-		return () => clearInterval(id)
-	}, [delay])
-}
+// 		return () => clearInterval(id)
+// 	}, [delay])
+// }
