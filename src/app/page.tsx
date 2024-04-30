@@ -8,6 +8,10 @@ export default function Home() {
         Accordion Component
       </Link>
 
+      <Link href={'/animation'} >
+        Animation Stuff
+      </Link>
+
       <Link href={'/button'} >
         Button Component
       </Link>
@@ -26,6 +30,10 @@ export default function Home() {
 
       <Link href={'/dropdown'} >
         Dropdown Component
+      </Link>
+
+      <Link href={'/others'} >
+        Basic Stuff - Others
       </Link>
     </div>
   );

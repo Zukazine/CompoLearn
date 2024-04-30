@@ -8,9 +8,14 @@ const BasicFAQ = () => {
 	const [open, setOpen] = useState(items[0].id)
 	
 	return ( 
-		<div>
-			<div>
-
+		<div className="grid place-items-center h-screen">
+			<div className="flex flex-col max-w-[720px] border border-slate-300 px-6 py-12 gap-5">
+				<span className="text-3xl font-bold">Frequetnly asked questions</span>
+					{items.map((item, idx) => {
+						return (
+							<Tabs q={item.question} par={item.paragraph}/>	
+						)
+					})}
 			</div>
 		</div>
 	);
@@ -18,7 +23,29 @@ const BasicFAQ = () => {
  
 export default BasicFAQ;
 
-const 
+const Tabs = ({ q, par }) => {
+	return (
+		<button className="flex grow justify-between items-center border-b border-slate-300 py-5">
+			<span className="max-w-[400px] text-left text-lg font-bold text-purple-950">{q}</span>
+			<motion.div
+				variants={tabVariants}
+			>
+			</motion.div>
+			<FiChevronDown color="#000000"/>
+		</button>
+	)
+}
+
+const tabVariants = {
+	open: {
+		width: "100%",
+		height: "100%"
+	}, 
+	close: {
+		width: "100%",
+		height: "0%"
+	}
+}
 
 const items = [
 	{
