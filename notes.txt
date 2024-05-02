@@ -82,8 +82,8 @@ Staggered Dropdown
 -- useEffect (Mount, Update) Notes : 
 x. Only need mounting once so use empty array
 x. Next render value not accessible on setCount, 
-x. Dep Array usage : control changes, kalo kosong setiap render pake initial value (mungkin besar ada bug)
+x. Dep Array usage : control changes, kalo kosong setiap render pake initial value (mungkin besar ada bug) instead use previous value
 
-instead use previous value
 - Search Functionality
+
 - Add a component via button

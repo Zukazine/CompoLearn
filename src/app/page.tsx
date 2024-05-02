@@ -32,6 +32,14 @@ export default function Home() {
         Dropdown Component
       </Link>
 
+      <Link href={'/grids'} >
+        Grids Component
+      </Link>
+
+      <Link href={'/links'} >
+        Links Component
+      </Link>
+
       <Link href={'/others'} >
         Basic Stuff - Others
       </Link>
