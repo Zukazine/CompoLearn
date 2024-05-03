@@ -87,3 +87,9 @@ x. Dep Array usage : control changes, kalo kosong setiap render pake initial val
 - Search Functionality
 
 - Add a component via button
+
+- Animation block via hover text
+
+- Cursor styling
+
+- Staggered Animation

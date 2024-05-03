@@ -2,10 +2,13 @@ import Link from "next/link";
 import CounterOne from "./_component/counterOne";
 import SearchOne from "./_component/searchOne";
 import CreationOne from "./_component/creationOne";
+import AnimateOne from "./_component/animateOne";
 
 const DropwdownPage = () => {
 	return ( 
 		<>
+		
+			<AnimateOne /> 
 			<CounterOne />
 			<SearchOne />
 			<CreationOne />

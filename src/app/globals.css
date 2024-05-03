@@ -36,3 +36,26 @@
     transform: translateX(-100%);
   }
 }
+
+/* SCROLLBAR */
+/* width */
+.myscrollbar::-webkit-scrollbar {
+  width: 8px;
+  right: 0;
+}
+
+/* Track */
+.myscrollbar::-webkit-scrollbar-track {
+  background: #FFFFFF;
+}
+
+/* Handle */
+.myscrollbar::-webkit-scrollbar-thumb {
+  background: #222222;
+  /* border-radius: 2px; */
+}
+
+/* Handle on hover */
+.myscrollbar::-webkit-scrollbar-thumb:hover {
+  background: #222222;
+}

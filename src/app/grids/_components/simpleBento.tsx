@@ -213,7 +213,7 @@ const Footer = () => {
       <p className="text-center text-zinc-400">
         Made with ❤️ by{" "}
         <a href="#" className="text-red-300 hover:underline">
-          @tomisloading
+          @iniIlyas
         </a>
       </p>
     </footer>
